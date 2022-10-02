@@ -1,6 +1,7 @@
 package dev.coffeecult.bookstore.security.jwt;
 
 import dev.coffeecult.bookstore.security.service.BaseUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,12 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
+    @Autowired
     private JwtUtils jwtUtils;
+    @Autowired
     private BaseUserDetailsService baseUserDetailsService;
-    public AuthTokenFilter(JwtUtils jwtUtils, BaseUserDetailsService baseUserDetailsService){
-        this.jwtUtils = jwtUtils;
-        this.baseUserDetailsService = baseUserDetailsService;
-    }
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
       var jwt = parseJWT(request);
