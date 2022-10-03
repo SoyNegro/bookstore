@@ -42,4 +42,13 @@ public record Book(@Id String id,
                 LocalDateTime.now(),
                 0);
     }
+
+    public Double getRate(){
+        var optRate = ratings.stream().mapToDouble(Rating::rate).average();
+        return optRate.orElse(0);
+    }
+
+    public int getChapterCount(){
+        return chapters.size();
+    }
 }
