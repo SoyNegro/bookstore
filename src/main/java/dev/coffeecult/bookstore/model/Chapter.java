@@ -1,5 +1,6 @@
 package dev.coffeecult.bookstore.model;
 
+import dev.coffeecult.bookstore.model.enums.ChapterType;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
