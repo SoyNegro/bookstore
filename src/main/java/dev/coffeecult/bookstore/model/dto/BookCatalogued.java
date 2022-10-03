@@ -1,7 +1,7 @@
 package dev.coffeecult.bookstore.model.dto;
 
 import dev.coffeecult.bookstore.model.Book;
-import dev.coffeecult.bookstore.model.Rating;
+
 
 import java.time.LocalDateTime;
 
