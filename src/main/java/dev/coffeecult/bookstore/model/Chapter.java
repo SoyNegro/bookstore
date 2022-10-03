@@ -4,11 +4,14 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public record Chapter(@Id String id,
                       String title,
                       String content,
                       ChapterType type,
+                      List<Comment> comments,
                       LocalDateTime createdAt,
                       LocalDateTime updatedAt,
                       boolean isVisible,
@@ -25,6 +28,7 @@ public record Chapter(@Id String id,
                 title,
                 content,
                 type,
+                new ArrayList<>(),
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 true,
